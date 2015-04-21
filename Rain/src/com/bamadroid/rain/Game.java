@@ -40,7 +40,7 @@ public class Game extends Canvas implements Runnable {
 		frame = new JFrame();
 		key = new Keyboard();
 		
-		frame.addKeyListener(key);
+		addKeyListener(key);
 	}
 	
 	public synchronized void start(){
@@ -115,8 +115,8 @@ public class Game extends Canvas implements Runnable {
 		
 		Graphics g = bs.getDrawGraphics();
 		
-		g.setColor(Color.BLACK);
-		g.fillRect(0, 0, getWidth(), getHeight());
+		//g.setColor(Color.BLACK);
+		//g.fillRect(0, 0, getWidth(), getHeight());
 		
 		g.drawImage(image,0,0,getWidth(), getHeight(), null);
 		g.dispose();
