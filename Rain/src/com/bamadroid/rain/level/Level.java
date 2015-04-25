@@ -1,6 +1,7 @@
 package com.bamadroid.rain.level;
 
 import com.bamadroid.rain.graphics.Screen;
+import com.bamadroid.rain.level.tile.Tile;
 
 public class Level {
 	
@@ -42,6 +43,12 @@ public class Level {
 		int x1 = (xScroll  + screen.width) >> 4;
 		int y0 = yScroll >> 4;
 		int y1 = (yScroll  + screen.height) >> 4;
+		getTile(x0, y0);
+	}
+	
+	public Tile getTile(int x, int y){
+		if (tiles[x+y*width] == 0) return Tile.grass;
+		return null;
 	}
 	
 }
