@@ -12,6 +12,7 @@ import javax.swing.JFrame;
 
 import com.bamadroid.rain.graphics.Screen;
 import com.bamadroid.rain.input.Keyboard;
+import com.bamadroid.rain.level.tile.Tile;
 
 public class Game extends Canvas implements Runnable {
 	private static final long serialVersionUID = 1L;
@@ -108,6 +109,7 @@ public class Game extends Canvas implements Runnable {
 		}
 		screen.clear();
 		screen.render(x,y);
+		//screen.renderTile(x,y, Tile.grass);
 		
 		for(int i = 0; i < pixels.length; i++){
 			pixels[i] = screen.pixels[i];
