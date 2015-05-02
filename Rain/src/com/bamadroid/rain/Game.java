@@ -1,7 +1,9 @@
 package com.bamadroid.rain;
 
 import java.awt.Canvas;
+import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
@@ -9,6 +11,7 @@ import java.awt.image.DataBufferInt;
 
 import javax.swing.JFrame;
 
+import com.bamadroid.rain.enity.mob.Player;
 import com.bamadroid.rain.graphics.Screen;
 import com.bamadroid.rain.input.Keyboard;
 import com.bamadroid.rain.level.Level;
@@ -27,6 +30,8 @@ public class Game extends Canvas implements Runnable {
 	private JFrame frame;
 	private Keyboard key;
 	private Level level;
+	
+	private Player player;
 	private boolean running = false;
 	
 	private Screen screen;
@@ -42,6 +47,7 @@ public class Game extends Canvas implements Runnable {
 		frame = new JFrame();
 		key = new Keyboard();
 		level = new RandomLevel(64,64);
+		player = new Player(key);
 		
 		addKeyListener(key);
 	}
@@ -94,13 +100,11 @@ public class Game extends Canvas implements Runnable {
 		stop();
 	}
 	
-	int x = 0, y = 0; 
+
 	public void update(){
 		key.update();
-		if (key.up) y--;
-		if (key.down) y++;
-		if (key.left) x--;
-		if (key.right) x++;
+		player.update();
+		
 	}
 	
 	public void render(){
@@ -110,7 +114,7 @@ public class Game extends Canvas implements Runnable {
 			return;
 		}
 		screen.clear();
-		level.render(x,  y,  screen);
+		level.render(player.x,  player.y,  screen);
 		
 		
 		for(int i = 0; i < pixels.length; i++){
@@ -118,11 +122,10 @@ public class Game extends Canvas implements Runnable {
 		}
 		
 		Graphics g = bs.getDrawGraphics();
-		
-		//g.setColor(Color.BLACK);
-		//g.fillRect(0, 0, getWidth(), getHeight());
-		
 		g.drawImage(image,0,0,getWidth(), getHeight(), null);
+		g.setColor(Color.WHITE);
+		g.setFont(new Font("Verdana", 0, 50));
+		g.drawString("X: " + player.x + ", Y: " + player.y, 350,  300);
 		g.dispose();
 		bs.show();
 		
