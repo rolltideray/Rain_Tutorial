@@ -114,7 +114,10 @@ public class Game extends Canvas implements Runnable {
 			return;
 		}
 		screen.clear();
-		level.render(player.x,  player.y,  screen);
+		int xscroll = player.x - screen.width /2;
+		int yscroll = player.y - screen.height /2;
+		level.render(xscroll,  yscroll,  screen);
+		player.render(screen);
 		
 		
 		for(int i = 0; i < pixels.length; i++){
@@ -125,7 +128,7 @@ public class Game extends Canvas implements Runnable {
 		g.drawImage(image,0,0,getWidth(), getHeight(), null);
 		g.setColor(Color.WHITE);
 		g.setFont(new Font("Verdana", 0, 50));
-		g.drawString("X: " + player.x + ", Y: " + player.y, 350,  300);
+		//g.drawString("X: " + player.x + ", Y: " + player.y, 350,  300);
 		g.dispose();
 		bs.show();
 		

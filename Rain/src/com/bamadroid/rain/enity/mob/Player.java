@@ -1,5 +1,7 @@
 package com.bamadroid.rain.enity.mob;
 
+import com.bamadroid.rain.graphics.Screen;
+import com.bamadroid.rain.graphics.Sprite;
 import com.bamadroid.rain.input.Keyboard;
 
 public class Player  extends Mob{
@@ -26,8 +28,8 @@ public class Player  extends Mob{
 		if (xa != 0 || ya != 0) move(xa, ya);
 	}
 	
-	public void render(){
-		
+	public void render(Screen screen){
+		screen.renderPlayer(x, y, Sprite.player0);
 	}
 
 }
