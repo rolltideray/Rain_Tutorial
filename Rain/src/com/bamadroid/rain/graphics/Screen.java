@@ -58,13 +58,13 @@ public class Screen {
 	public void renderPlayer(int xp, int yp, Sprite sprite){
 		xp -= xOffset;
 		yp -= yOffset;
-		for (int y = 0; y < 16; y++){
+		for (int y = 0; y < Sprite.player.SIZE; y++){
 			int ya = y + yp;
-			for (int x = 0; x < 16; x++){
+			for (int x = 0; x < Sprite.player.SIZE; x++){
 				int xa = x + xp;
-				if (xa < -16 || xa >= this.width || ya < 0 || ya >= this.height) break;
+				if (xa < -Sprite.player.SIZE || xa >= this.width || ya < 0 || ya >= this.height) break;
 				if(xa < 0) xa = 0;
-				int col = sprite.pixels[x + y  * 16];
+				int col = sprite.pixels[x + y  * Sprite.player.SIZE];
 				if (col != 0xFFFF00FF) pixels[xa + ya * this.width] = col;
 				
 			}
