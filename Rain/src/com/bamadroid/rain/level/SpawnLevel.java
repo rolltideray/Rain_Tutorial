@@ -37,7 +37,6 @@ public class SpawnLevel extends Level {
 			if (levelPixels[i] == 0xFF00) tiles[i] = Tile.grass;
 			if (levelPixels[i] == 0xFFFF00) tiles[i] = Tile.flower;
 			if (levelPixels[i] == 0x7F7F00) tiles[i] = Tile.rock;
-			}
 		}
 		
 	}
