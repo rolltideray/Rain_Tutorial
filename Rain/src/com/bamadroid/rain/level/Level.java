@@ -30,6 +30,10 @@ public class Level {
 		
 	}
 	
+	protected void generateLevel(){
+		
+	}
+	
 	public void update(){
 		
 	}
