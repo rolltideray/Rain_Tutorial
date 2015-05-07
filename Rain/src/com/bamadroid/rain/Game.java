@@ -15,7 +15,7 @@ import com.bamadroid.rain.enity.mob.Player;
 import com.bamadroid.rain.graphics.Screen;
 import com.bamadroid.rain.input.Keyboard;
 import com.bamadroid.rain.level.Level;
-import com.bamadroid.rain.level.SpawnLevel;
+import com.bamadroid.rain.level.TileCoordinate;
 
 public class Game extends Canvas implements Runnable {
 	private static final long serialVersionUID = 1L;
@@ -46,8 +46,9 @@ public class Game extends Canvas implements Runnable {
 		screen = new Screen(width, height);
 		frame = new JFrame();
 		key = new Keyboard();
-		level = new SpawnLevel("/textures/levels/level.png");
-		player = new Player(4*16, 2*16, key);
+		level = Level.spawn;
+		TileCoordinate playerSpawn = new TileCoordinate(19, 62);
+		player = new Player(playerSpawn.x(), playerSpawn.y(), key);
 		
 		addKeyListener(key);
 	}
