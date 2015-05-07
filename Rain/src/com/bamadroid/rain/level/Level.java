@@ -59,7 +59,6 @@ public class Level {
 	
 	public Tile getTile(int x, int y){
 		if (x < 0 ||x >= width || y < 0 || y >= height) return Tile.voidTile;
-		System.out.println("Good");
 		if (tiles[x + y * width] == Tile.col_spawn_floor) return Tile.spawn_floor_tile;
 		if (tiles[x + y * width] == Tile.col_spawn_grass) return Tile.spawn_grass_tile;
 		if (tiles[x + y * width] == Tile.col_spawn_hedge) return Tile.spawn_hedge_tile;

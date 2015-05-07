@@ -21,7 +21,7 @@ public class Game extends Canvas implements Runnable {
 	private static final long serialVersionUID = 1L;
 	
 	public static int width = 300;
-	public static int height = width / 16 * 9;
+	public static int height = width / 16 * 9; // TheCherno has the value 168 here??????????
 	public static int scale = 3;
 	
 	public static String title = "Rain";
@@ -49,6 +49,7 @@ public class Game extends Canvas implements Runnable {
 		level = Level.spawn;
 		TileCoordinate playerSpawn = new TileCoordinate(19, 62);
 		player = new Player(playerSpawn.x(), playerSpawn.y(), key);
+		player.init(level);
 		
 		addKeyListener(key);
 	}
