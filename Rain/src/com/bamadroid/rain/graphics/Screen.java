@@ -2,7 +2,6 @@ package com.bamadroid.rain.graphics;
 
 import java.util.Random;
 
-import com.bamadroid.rain.enity.mob.Player;
 import com.bamadroid.rain.level.tile.Tile;
 
 public class Screen {
