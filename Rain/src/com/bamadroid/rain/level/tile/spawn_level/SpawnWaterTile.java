@@ -4,9 +4,9 @@ import com.bamadroid.rain.graphics.Screen;
 import com.bamadroid.rain.graphics.Sprite;
 import com.bamadroid.rain.level.tile.Tile;
 
-public class SpawnGrassTile extends Tile {
+public class SpawnWaterTile extends Tile {
 
-	public SpawnGrassTile(Sprite sprite) {
+	public SpawnWaterTile(Sprite sprite) {
 		super(sprite);
 		// TODO Auto-generated constructor stub
 	}
