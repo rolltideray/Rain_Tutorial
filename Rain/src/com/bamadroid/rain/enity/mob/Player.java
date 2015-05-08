@@ -31,6 +31,7 @@ public class Player  extends Mob{
 		if (input.down) ya++;
 		if (input.left) xa--;
 		if (input.right) xa++;
+		if (input.jump) ya--; // My own Crap! not working like it should
 		
 		if (xa != 0 || ya != 0)
 		{
