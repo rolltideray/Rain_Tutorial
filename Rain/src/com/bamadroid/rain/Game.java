@@ -14,6 +14,7 @@ import javax.swing.JFrame;
 import com.bamadroid.rain.enity.mob.Player;
 import com.bamadroid.rain.graphics.Screen;
 import com.bamadroid.rain.input.Keyboard;
+import com.bamadroid.rain.input.Mouse;
 import com.bamadroid.rain.level.Level;
 import com.bamadroid.rain.level.TileCoordinate;
 
@@ -52,6 +53,10 @@ public class Game extends Canvas implements Runnable {
 		player.init(level);
 		
 		addKeyListener(key);
+		
+		Mouse mouse = new Mouse();
+		addMouseListener(mouse);
+		addMouseMotionListener(mouse);
 	}
 	
 	public synchronized void start(){
@@ -130,7 +135,8 @@ public class Game extends Canvas implements Runnable {
 		g.drawImage(image,0,0,getWidth(), getHeight(), null);
 		g.setColor(Color.WHITE);
 		g.setFont(new Font("Verdana", 0, 50));
-		//g.drawString("X: " + player.x + ", Y: " + player.y, 350,  300);
+		g.fillRect(Mouse.getX() - 32, Mouse.getY() -32, 64, 64);
+		if (Mouse.getButton() != -1) g.drawString("Button: " + Mouse.getButton(), 80,  80);
 		g.dispose();
 		bs.show();
 		
