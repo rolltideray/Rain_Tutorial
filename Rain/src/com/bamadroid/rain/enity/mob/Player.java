@@ -3,6 +3,7 @@ package com.bamadroid.rain.enity.mob;
 import com.bamadroid.rain.graphics.Screen;
 import com.bamadroid.rain.graphics.Sprite;
 import com.bamadroid.rain.input.Keyboard;
+import com.bamadroid.rain.input.Mouse;
 
 public class Player  extends Mob{
 	
@@ -33,6 +34,7 @@ public class Player  extends Mob{
 		if (input.right) xa++;
 		if (input.jump) ya--; // My own Crap! not working like it should
 		
+		
 		if (xa != 0 || ya != 0)
 		{
 			move(xa, ya);
@@ -42,8 +44,21 @@ public class Player  extends Mob{
 		{
 				walking = false;
 		}
+		
+		updateShooting();
 	}
 	
+	private void updateShooting() {
+		
+		if (Mouse.getButton() == 1){
+			double dx = Mouse.getX() - 300/2;
+			double dy = Mouse.getY() - 168/2;
+			double dir = Math.atan2(dy, dx);
+			shoot(x, y, dir);
+		}
+		
+	}
+
 	public void render(Screen screen){
 		int flip = 0;
 		if (dir == 0) {
