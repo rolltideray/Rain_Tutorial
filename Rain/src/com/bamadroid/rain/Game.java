@@ -21,9 +21,9 @@ import com.bamadroid.rain.level.TileCoordinate;
 public class Game extends Canvas implements Runnable {
 	private static final long serialVersionUID = 1L;
 	
-	public static int width = 300;
-	public static int height = width / 16 * 9; // TheCherno has the value 168 here??????????
-	public static int scale = 3;
+	private static int width = 300;
+	private static int height = 168;//width / 16 * 9; // TheCherno has the value 168 here??????????
+	private static int scale = 3;
 	
 	public static String title = "Rain";
 	
@@ -57,6 +57,14 @@ public class Game extends Canvas implements Runnable {
 		Mouse mouse = new Mouse();
 		addMouseListener(mouse);
 		addMouseMotionListener(mouse);
+	}
+	
+	public static int getWindowWidth(){
+		return width * scale;
+	}
+	
+	public static int getWindoHeight(){
+		return height * scale;
 	}
 	
 	public synchronized void start(){

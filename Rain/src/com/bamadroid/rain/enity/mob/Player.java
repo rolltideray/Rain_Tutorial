@@ -1,5 +1,6 @@
 package com.bamadroid.rain.enity.mob;
 
+import com.bamadroid.rain.Game;
 import com.bamadroid.rain.graphics.Screen;
 import com.bamadroid.rain.graphics.Sprite;
 import com.bamadroid.rain.input.Keyboard;
@@ -51,8 +52,8 @@ public class Player  extends Mob{
 	private void updateShooting() {
 		
 		if (Mouse.getButton() == 1){
-			double dx = Mouse.getX() - 300/2;
-			double dy = Mouse.getY() - 168/2;
+			double dx = Mouse.getX() - Game.getWindowWidth()/2;
+			double dy = Mouse.getY() - Game.getWindoHeight()/2;
 			double dir = Math.atan2(dy, dx);
 			shoot(x, y, dir);
 		}
